@@ -5,7 +5,7 @@ function Vehiculos(props) {
 
   useEffect(() => {
     obtenerVehiculo(props.vehiculo);
-  }, []);
+  },[]);
 
   const obtenerVehiculo = async(url) => {
     const data = await fetch(`${url}`);
