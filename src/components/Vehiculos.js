@@ -1,23 +1,21 @@
-import React, { useState, useEffect, Fragment } from 'react';
+import React, { useState, useEffect } from 'react';
 
-function Vehiculos(props) {
+export const Vehiculos = props => {
   const [vehiculo, setVehiculo] = useState([]);
 
   useEffect(() => {
-    obtenerVehiculo(props.vehiculo);
-  },[]);
+    const obtenerVehiculo = async () => {
+      const data = await fetch(`${props.urlVehiculo}`);
+      const dataVehiculo = await data.json();
+      setVehiculo(dataVehiculo);
+      console.log('aqui')
+      
+    }
 
-  const obtenerVehiculo = async(url) => {
-    const data = await fetch(`${url}`);
-    const vehiculo = await data.json();
-    setVehiculo(vehiculo);
-  }
+    obtenerVehiculo();
+  }, [props.urlVehiculo]);
 
-  return(
-      <Fragment>
-        <p>{vehiculo.name}</p>
-      </Fragment>
+  return (
+    <p>{vehiculo.name}</p>
   );
-}
-
-export default Vehiculos;
+};
