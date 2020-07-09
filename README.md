@@ -11,7 +11,7 @@ The page will reload if you make edits.<br />
 You will also see any lint errors in the console.
 
 ## You need...
-** Material-UI **
+* Material-UI *
 Install via npm
 `$ npm install @material-ui/core`
 
